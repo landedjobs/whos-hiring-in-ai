@@ -104,7 +104,6 @@ def avatar(h: str, name: str) -> str:
 
 
 def btn(url: str, asset: str, alt: str) -> str:
-	# Local SVG button assets render at their true size (48px tall) — GitHub ignores height= on remote badges.
 	return f'<a href="{url}"><img src="assets/{asset}" width="168" alt="{alt}"></a>'
 
 
@@ -127,12 +126,14 @@ def row(p, now) -> str:
 	else:
 		# No external link → the play is to reply / DM on the post itself.
 		go = btn(p["tweetUrl"], "btn-openx-v2.svg", "Open on X")
-	return f"| {who} | {post} | {go} |"
+	return f'<tr><td align="center" width="150">{who}</td><td>{post}</td><td align="center" width="180">{go}</td></tr>'
 
 
 def table(posts, now) -> str:
-	head = "| Who's hiring | The post | Go |\n|:---:|:---|:---:|"
-	return "\n".join([head] + [row(p, now) for p in posts])
+	# Raw HTML table: markdown tables can't set td width, and without a fixed Go column
+	# GitHub's forced img{max-width:100%} lets the text column crush the buttons to nothing.
+	head = '<tr><th align="center">Who&#39;s hiring</th><th align="left">The post</th><th align="center">Go</th></tr>'
+	return "<table>\n" + "\n".join([head] + [row(p, now) for p in posts]) + "\n</table>"
 
 
 def section(anchor, emoji, title, sub, posts, now) -> str:
