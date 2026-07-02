@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="54" viewBox="0 0 150 54" role="img" aria-label="OPEN ON X">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c3aed"/><stop offset="1" stop-color="#6C2BD9"/></linearGradient></defs>
+  <rect width="150" height="54" rx="13" fill="url(#g)"/>
+  <text x="75" y="34" font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="20" font-weight="800" letter-spacing="1" fill="#ffffff" text-anchor="middle">OPEN ON X</text>
+</svg>

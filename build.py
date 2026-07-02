@@ -121,12 +121,12 @@ def row(p, now) -> str:
 	post = f"{excerpt(p['text'])}<br>{meta}"
 	links = job_links(p)
 	if links:
-		go = btn(links[0], "btn-apply.svg", "Apply") + "<br>" + btn(p["tweetUrl"], "btn-xpost.svg", "View post")
+		go = btn(links[0], "btn-apply-v2.svg", "Apply") + "<br>" + btn(p["tweetUrl"], "btn-xpost-v2.svg", "View post")
 		if len(links) > 1:
 			go += f'<br><sub><a href="{p["tweetUrl"]}">+{len(links) - 1} more roles</a></sub>'
 	else:
 		# No external link → the play is to reply / DM on the post itself.
-		go = btn(p["tweetUrl"], "btn-openx.svg", "Open on X")
+		go = btn(p["tweetUrl"], "btn-openx-v2.svg", "Open on X")
 	return f"| {who} | {post} | {go} |"
 
 
