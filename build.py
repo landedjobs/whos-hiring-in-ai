@@ -176,10 +176,6 @@ def main():
 
 	fresh = [p for p in posts if days_old(p, now) <= FRESH_DAYS][:12]
 
-	role_links = [f"[{ROLE_META[key][0]} {ROLE_META[key][1]}](#{key})" for key in ROLE_ORDER if by_role[key]]
-	cat_links = [f"[{e} {t}](#{c})" for c, e, t, _ in GROUPS if by_cat[c]]
-	nav = " · ".join(["[🔥 Fresh](#fresh)"] + role_links + cat_links)
-
 	toc = "\n".join(
 		[f"- [🔥 Freshest {len(fresh)}](#fresh)"]
 		+ [f"- [{ROLE_META[key][0]} {ROLE_META[key][1]}](#{key}) · **{len(by_role[key])}**" for key in ROLE_ORDER if by_role[key]]
@@ -204,9 +200,7 @@ def main():
 
 <div align="center">
 
-<a href="{SITE}"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="210"></a>
-
-<br><br>
+<a href="{SITE}"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="200"></a>
 
 <img src="assets/banner.svg" alt="Who's Hiring in AI — real hiring posts from X" width="100%">
 
@@ -216,8 +210,6 @@ def main():
 Jobs surface here *before* they hit the job boards, and a reply or DM beats a cold application every time.
 
 *Hand-curated, refreshed every few days by [{BRAND}]({SITE}).*
-
-{nav}
 
 </div>
 

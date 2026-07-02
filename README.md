@@ -2,9 +2,7 @@
 
 <div align="center">
 
-<a href="https://landed.jobs"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="210"></a>
-
-<br><br>
+<a href="https://landed.jobs"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="200"></a>
 
 <img src="assets/banner.svg" alt="Who's Hiring in AI — real hiring posts from X" width="100%">
 
@@ -14,8 +12,6 @@
 Jobs surface here *before* they hit the job boards, and a reply or DM beats a cold application every time.
 
 *Hand-curated, refreshed every few days by [Landed](https://landed.jobs).*
-
-[🔥 Fresh](#fresh) · [🤖 AI / ML / Research](#ai-ml) · [📊 Data](#data) · [🤝 Forward-deployed & Solutions](#fde) · [💻 Software & Infra](#swe) · [🚀 GTM & Growth](#gtm) · [🎨 Product & Design](#product) · [🏢 Multiple / company-wide](#company) · [🧩 Other roles](#other) · [🧵 Roundups & curators](#hiring_roundup) · [🎓 Fellowships & programs](#talent_program)
 
 </div>
 
