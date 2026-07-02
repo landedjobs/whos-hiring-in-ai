@@ -104,7 +104,7 @@ def avatar(h: str, name: str) -> str:
 
 
 def btn(url: str, asset: str, alt: str) -> str:
-	return f'<a href="{url}"><img src="assets/{asset}" width="118" alt="{alt}"></a>'
+	return f'<a href="{url}"><img src="assets/{asset}" width="71" alt="{alt}"></a>'
 
 
 def row(p, now) -> str:
@@ -126,7 +126,7 @@ def row(p, now) -> str:
 	else:
 		# No external link → the play is to reply / DM on the post itself.
 		go = btn(p["tweetUrl"], "btn-openx-v2.svg", "Open on X")
-	return f'<tr><td align="center" width="150">{who}</td><td>{post}</td><td align="center" width="140">{go}</td></tr>'
+	return f'<tr><td align="center" width="150">{who}</td><td>{post}</td><td align="center" width="95">{go}</td></tr>'
 
 
 def table(posts, now) -> str:
