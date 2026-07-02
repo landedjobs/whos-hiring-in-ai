@@ -103,10 +103,9 @@ def avatar(h: str, name: str) -> str:
 	return f"https://unavatar.io/x/{h}?fallback={quote(fb, safe='')}"
 
 
-def btn(url: str, label: str, color: str, logo: str | None = None) -> str:
-	# height=34 + non-black colors so buttons are clearly visible on GitHub dark theme.
-	logo_part = f"&logo={logo}&logoColor=white" if logo else ""
-	return f'<a href="{url}"><img src="https://img.shields.io/badge/{label}-{color}?style=for-the-badge{logo_part}" height="44" alt="{label}"></a>'
+def btn(url: str, asset: str, alt: str) -> str:
+	# Local SVG button assets render at their true size (48px tall) — GitHub ignores height= on remote badges.
+	return f'<a href="{url}"><img src="assets/{asset}" height="48" alt="{alt}"></a>'
 
 
 def row(p, now) -> str:
@@ -122,12 +121,12 @@ def row(p, now) -> str:
 	post = f"{excerpt(p['text'])}<br>{meta}"
 	links = job_links(p)
 	if links:
-		go = btn(links[0], "Apply", "ff5b29") + "<br>" + btn(p["tweetUrl"], "𝕏_Post", "1DA1F2", "x")
+		go = btn(links[0], "btn-apply.svg", "Apply") + "<br>" + btn(p["tweetUrl"], "btn-xpost.svg", "View post")
 		if len(links) > 1:
 			go += f'<br><sub><a href="{p["tweetUrl"]}">+{len(links) - 1} more roles</a></sub>'
 	else:
 		# No external link → the play is to reply / DM on the post itself.
-		go = btn(p["tweetUrl"], "Open_on_𝕏", "6C2BD9", "x")
+		go = btn(p["tweetUrl"], "btn-openx.svg", "Open on X")
 	return f"| {who} | {post} | {go} |"
 
 
