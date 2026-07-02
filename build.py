@@ -106,7 +106,7 @@ def avatar(h: str, name: str) -> str:
 def btn(url: str, label: str, color: str, logo: str | None = None) -> str:
 	# height=34 + non-black colors so buttons are clearly visible on GitHub dark theme.
 	logo_part = f"&logo={logo}&logoColor=white" if logo else ""
-	return f'<a href="{url}"><img src="https://img.shields.io/badge/{label}-{color}?style=for-the-badge{logo_part}" height="34" alt="{label}"></a>'
+	return f'<a href="{url}"><img src="https://img.shields.io/badge/{label}-{color}?style=for-the-badge{logo_part}" height="44" alt="{label}"></a>'
 
 
 def row(p, now) -> str:
