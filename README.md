@@ -296,23 +296,36 @@ _Fellowships, residencies and structured programs announced on X._
 
 ---
 
-## How this list is built
-
-An agent reads our team's curated X bookmarks every 2–3 days, keeps only genuine hiring posts (no engagement bait, no "drop your portfolio" farming), sorts them by role, and rebuilds this page. Older posts fall into each section's collapsible archive — the accounts stay worth following even after a role is filled.
-
-**Want in?** [Submit a hiring post](https://github.com/landedjobs/whos-hiring-in-ai/issues/new?template=add-hiring-post.yml) or open a PR editing `data/posts.json`. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
 ## How to actually convert these into interviews
 
 Replying "interested!" alongside 200 other people is still spraying. What works: a same-day reply with one concrete, relevant thing you've built, then a short DM referencing the post. Fewer, better applications beat the spray — [Landed](https://landed.jobs) brings you matched roles daily, drafts your answers to each application's questions, and preps you with courses and voice mock interviews.
 
 **[Get started free → https://landed.jobs](https://landed.jobs)**
 
+---
+
+## How this list is built
+
+An agent reads our team's curated X bookmarks every 2–3 days, keeps only genuine hiring posts (no engagement bait, no "drop your portfolio" farming), sorts them by role, and rebuilds this page. Older posts fall into each section's collapsible archive — the accounts stay worth following even after a role is filled.
+
+**Want in?** [Submit a hiring post](https://github.com/landedjobs/whos-hiring-in-ai/issues/new?template=add-hiring-post.yml) or open a PR editing `data/posts.json`. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Related
 
-- 🧭 [awesome-ai-native-jobs](https://github.com/landedjobs/awesome-ai-native-jobs) — the umbrella for the whole family
+Part of the [Landed](https://landed.jobs) AI-native job-search family:
+
+- 🧭 [awesome-ai-native-jobs](https://github.com/landedjobs/awesome-ai-native-jobs) — the umbrella that maps the whole AI-native job landscape
+- 💸 [recently-funded-ai-startups-hiring](https://github.com/landedjobs/recently-funded-ai-startups-hiring) — fresh-capital startups staffing up now
 - 🚀 [ai-engineer-jobs](https://github.com/landedjobs/ai-engineer-jobs) — 300 live AI engineer roles, auto-updated
-- 💸 [recently-funded-ai-startups-hiring](https://github.com/landedjobs/recently-funded-ai-startups-hiring) — fresh-capital companies that are hiring
+- 🧠 [llm-engineer-jobs](https://github.com/landedjobs/llm-engineer-jobs) — LLM engineering roles
+- 🤖 [ai-agent-engineer-jobs](https://github.com/landedjobs/ai-agent-engineer-jobs) — agent-building roles
+- 🤝 [forward-deployed-engineer-jobs](https://github.com/landedjobs/forward-deployed-engineer-jobs) — FDE & customer-facing engineering
+- 📈 [gtm-engineer-jobs](https://github.com/landedjobs/gtm-engineer-jobs) — GTM engineering roles
+- 🎓 [ai-fellowships-and-residencies](https://github.com/landedjobs/ai-fellowships-and-residencies) — 75 fellowships, residencies & programs
+- 📘 [ai-interview-guides](https://github.com/landedjobs/ai-interview-guides) — 33 company interview guides
+- ❓ [ai-interview-questions](https://github.com/landedjobs/ai-interview-questions) — 331 real interview questions with answers
+- 🧪 [projects-to-land-an-ai-job](https://github.com/landedjobs/projects-to-land-an-ai-job) — portfolio projects that actually get you hired
+- 🗺️ [ai-product-engineer-roadmap](https://github.com/landedjobs/ai-product-engineer-roadmap) — the AI product engineer roadmap
 
 <div align="center">
 <sub>93 posts from 76 accounts · updated 2026-07-02 · maintained by <a href="https://landed.jobs">Landed</a>. All posts belong to their authors — we link, we don't copy. Not affiliated with X.</sub>
