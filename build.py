@@ -204,10 +204,11 @@ def main():
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" alt="Who's Hiring in AI — real hiring posts from X" width="100%">
-</picture>
+<a href="{SITE}"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="210"></a>
+
+<br><br>
+
+<img src="assets/banner.svg" alt="Who's Hiring in AI — real hiring posts from X" width="100%">
 
 ![Posts](https://img.shields.io/badge/{len(posts)}%20hiring%20posts-ff5b29?style=flat-square) ![Sources](https://img.shields.io/badge/{authors}%20hiring%20accounts-6C2BD9?style=flat-square) ![Updated](https://img.shields.io/badge/updated-{today.replace('-', '.')}-00A86B?style=flat-square) [![Stars](https://img.shields.io/github/stars/landedjobs/whos-hiring-in-ai?style=social)](https://github.com/landedjobs/whos-hiring-in-ai)
 
