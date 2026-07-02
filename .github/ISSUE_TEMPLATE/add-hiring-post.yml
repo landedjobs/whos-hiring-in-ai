@@ -1,0 +1,48 @@
+name: ➕ Add a hiring post
+description: Suggest an AI hiring post from X to add to the list
+title: "[add] hiring post from @"
+labels: ["new-post"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: X post URL
+      description: Link to the tweet/post with the opening(s).
+      placeholder: https://x.com/username/status/1234567890
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Primary role
+      options:
+        - AI / ML / Research
+        - Data
+        - Forward-deployed & Solutions
+        - Software & Infra
+        - GTM & Growth
+        - Product & Design
+        - Multiple / company-wide
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: apply
+    attributes:
+      label: Apply link (optional)
+      description: A direct careers/apply URL if the post has one.
+      placeholder: https://company.com/careers
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else?
+      description: Why it's worth adding, comp, location, etc.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Quick checks
+      options:
+        - label: This is a genuine hiring post (not engagement bait or a "drop your portfolio" thread).
+          required: true
+        - label: It's AI-adjacent or from an AI-native company/team.
+          required: true

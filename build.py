@@ -8,6 +8,7 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import quote
 
 HERE = Path(__file__).resolve().parent
 SITE = "https://landed.jobs"
@@ -16,12 +17,36 @@ BRAND = "Landed"
 FRESH_DAYS = 14
 ARCHIVE_DAYS = 45
 
-CATS = [
-	("job_posting", "💼", "Direct job posts", "Founders and hiring managers posting openings on their own timeline — reply fast, these move quickly."),
-	("hiring_roundup", "🧵", "Roundups & curators", "Accounts that regularly compile who's hiring. Worth following at the source."),
-	("talent_program", "🎓", "Talent programs", "Fellowships, residencies and structured programs announced on X."),
-	("referral_offer", "🤝", "Referral offers", "People publicly offering to refer candidates — the warmest way in."),
+# Role buckets, in priority order (a post is filed under its first strong match).
+ROLES = [
+	("ai-ml", "🤖", "AI / ML / Research", r"\b(ai[ /-]?eng|ml[ /-]?eng|machine learning|applied scientist|research (?:engineer|scientist)|\bllm\b|deep learning|\bnlp\b|computer vision|ai researcher|generative ai|agent(?:ic|s)? (?:engineer|team|platform)|founding (?:ai|ml)|ai/ml|prompt engineer)\b"),
+	("data", "📊", "Data", r"\b(data engineer|data scientist|data analyst|analytics engineer|data science|analytics)\b"),
+	("fde", "🤝", "Forward-deployed & Solutions", r"\b(forward[ -]?deployed|\bfde\b|solutions? engineer|solutions? architect|field engineer|customer engineer|deployment (?:engineer|strateg))\b"),
+	("swe", "💻", "Software & Infra", r"\b(software engineer|\bswe\b|full[ -]?stack|back[ -]?end|front[ -]?end|devops|infrastructure|\binfra\b|platform engineer|production engineer|network engineer|systems? engineer|smart contract|solidity|web3|mobile engineer|\bios\b|android|security engineer|founding engineer|first engineer)\b"),
+	("gtm", "🚀", "GTM & Growth", r"\b(gtm|go[ -]?to[ -]?market|growth (?:engineer|lead|marketer|hacker)|\bsales\b|account executive|\bae\b|business development|\bbd\b|outbound|revenue|marketing|demand gen|partnerships)\b"),
+	("product", "🎨", "Product & Design", r"\b(product manage(?:r|ment)|\bpm\b|product lead|head of product|director of product|product owner|product engineer|designer|design(?:ers)?|\bux\b|\bui\b|product design|motion design|brand design)\b"),
 ]
+COMPANYWIDE = re.compile(r"\b(across the (?:company|team|board|org)|company[- ]wide|\d{2,}\+? (?:open )?roles|many roles|multiple roles|several roles|hiring for (?:a lot|lots|tons))\b", re.I)
+OTHER = ("other", "🧩", "Other roles")
+ROLE_ORDER = [r[0] for r in ROLES] + ["company", "other"]
+ROLE_META = {r[0]: (r[1], r[2]) for r in ROLES} | {"company": ("🏢", "Multiple / company-wide"), "other": OTHER[1:]}
+
+# Non-role sections rendered after the role buckets.
+GROUPS = [
+	("hiring_roundup", "🧵", "Roundups & curators", "Accounts that regularly compile who's hiring — worth following at the source."),
+	("talent_program", "🎓", "Fellowships & programs", "Fellowships, residencies and structured programs announced on X."),
+]
+
+
+def classify(p) -> str:
+	text = p.get("text", "") or ""
+	matches = [key for key, _, _, pat in ROLES if re.search(pat, text, re.I)]
+	if COMPANYWIDE.search(text) or len(matches) >= 3:
+		return "company"
+	if matches:
+		return matches[0]
+	# Fallback: a bare "engineer(s)" with no role qualifier → software.
+	return "swe" if re.search(r"\bengineers?\b", text, re.I) else "other"
 
 
 def load():
@@ -43,14 +68,12 @@ def esc(s: str) -> str:
 
 def excerpt(s: str, n: int = 210) -> str:
 	s = esc(s)
-	if len(s) <= n:
-		return s
-	return s[:n].rsplit(" ", 1)[0].rstrip(",.;:-") + " …"
+	return s if len(s) <= n else s[:n].rsplit(" ", 1)[0].rstrip(",.;:-") + " …"
 
 
 def k(n) -> str:
 	n = n or 0
-	return f"{n/1000:.1f}".rstrip("0").rstrip(".") + "k" if n >= 1000 else str(n)
+	return f"{n / 1000:.1f}".rstrip("0").rstrip(".") + "k" if n >= 1000 else str(n)
 
 
 def age(iso: str, now: datetime) -> str:
@@ -73,29 +96,39 @@ def job_links(p):
 	return [u for u in re.split(r"\s+", raw) if u.startswith("http")]
 
 
+def avatar(h: str, name: str) -> str:
+	# unavatar pulls the real X avatar; ui-avatars fallback guarantees an image so no broken tiles.
+	initial = (name or h or "?").strip()[:1].upper() or "?"
+	fb = f"https://ui-avatars.com/api/?name={quote(initial)}&size=64&background=6C2BD9&color=fff&bold=true&format=png"
+	return f"https://unavatar.io/x/{h}?fallback={quote(fb, safe='')}"
+
+
+def btn(url: str, label: str, color: str, logo: str | None = None) -> str:
+	# height=34 + non-black colors so buttons are clearly visible on GitHub dark theme.
+	logo_part = f"&logo={logo}&logoColor=white" if logo else ""
+	return f'<a href="{url}"><img src="https://img.shields.io/badge/{label}-{color}?style=for-the-badge{logo_part}" height="34" alt="{label}"></a>'
+
+
 def row(p, now) -> str:
 	a = p["author"]
 	h = a["screenName"]
 	profile = a.get("profileUrl") or f"https://x.com/{h}"
 	who = (
-		f'<a href="{profile}"><img src="https://unavatar.io/x/{h}" width="44" alt="@{h}"></a><br>'
+		f'<a href="{profile}"><img src="{avatar(h, a.get("name"))}" width="48" height="48" alt="@{h}"></a><br>'
 		f'<b><a href="{profile}">{esc(a.get("name") or h)}</a></b><br>'
 		f'<sub>@{h} · {k(a.get("followers"))} followers</sub>'
 	)
-	likes = p["stats"].get("likes", 0)
-	meta = f'<sub>❤️ {k(likes)} · 🔁 {k(p["stats"].get("retweets", 0))} · {age(p["postedAt"], now)}</sub>'
+	meta = f'<sub>❤️ {k(p["stats"].get("likes", 0))} · 🔁 {k(p["stats"].get("retweets", 0))} · {age(p["postedAt"], now)}</sub>'
 	post = f"{excerpt(p['text'])}<br>{meta}"
-	btns = [
-		f'<a href="{p["tweetUrl"]}"><img src="https://img.shields.io/badge/View_post-000000?style=for-the-badge&logo=x&logoColor=white" alt="View post"></a>'
-	]
 	links = job_links(p)
 	if links:
-		btns.append(
-			f'<a href="{links[0]}"><img src="https://img.shields.io/badge/Apply-ff5b29?style=for-the-badge&logoColor=white" alt="Apply"></a>'
-		)
+		go = btn(links[0], "Apply", "ff5b29") + "<br>" + btn(p["tweetUrl"], "𝕏_Post", "1DA1F2", "x")
 		if len(links) > 1:
-			btns.append(f'<sub><a href="{p["tweetUrl"]}">+{len(links) - 1} more roles</a></sub>')
-	return f"| {who} | {post} | {'<br>'.join(btns)} |"
+			go += f'<br><sub><a href="{p["tweetUrl"]}">+{len(links) - 1} more roles</a></sub>'
+	else:
+		# No external link → the play is to reply / DM on the post itself.
+		go = btn(p["tweetUrl"], "Open_on_𝕏", "6C2BD9", "x")
+	return f"| {who} | {post} | {go} |"
 
 
 def table(posts, now) -> str:
@@ -103,7 +136,7 @@ def table(posts, now) -> str:
 	return "\n".join([head] + [row(p, now) for p in posts])
 
 
-def section(emoji, title, sub, posts, now, anchor) -> str:
+def section(anchor, emoji, title, sub, posts, now) -> str:
 	if not posts:
 		return ""
 	live = [p for p in posts if days_old(p, now) <= ARCHIVE_DAYS]
@@ -112,30 +145,60 @@ def section(emoji, title, sub, posts, now, anchor) -> str:
 	if live:
 		out += table(live, now) + "\n"
 	if old:
-		out += f"\n<details>\n<summary><b>🗄️ {len(old)} older posts</b> (roles may be filled — still great accounts to follow)</summary>\n\n{table(old, now)}\n\n</details>\n"
+		out += f"\n<details>\n<summary><b>🗄️ {len(old)} older {title.lower()} posts</b> (roles may be filled — the accounts stay worth following)</summary>\n\n{table(old, now)}\n\n</details>\n"
 	return out + "\n[⬆ back to top](#top)\n"
+
+
+ROLE_SUB = {
+	"ai-ml": "AI, ML, research and agent-engineering roles.",
+	"data": "Data engineering, data science and analytics roles.",
+	"fde": "Forward-deployed, solutions and customer-facing engineering.",
+	"swe": "Software, infrastructure and platform roles.",
+	"gtm": "Go-to-market, sales, growth and marketing roles.",
+	"product": "Product management and design roles.",
+	"company": "Founders hiring across the whole company — many roles in one post.",
+	"other": "Ops, chief-of-staff, content and everything else.",
+}
 
 
 def main():
 	updated, posts = load()
 	now = datetime.now(timezone.utc)
 	today = updated or now.strftime("%Y-%m-%d")
-	by_cat = {c: [p for p in posts if p["category"] == c] for c, *_ in CATS}
-	fresh = [p for p in posts if days_old(p, now) <= FRESH_DAYS][:12]
 	authors = len({p["author"]["screenName"] for p in posts})
 
+	# Role buckets draw from direct job posts + referral offers; roundups/programs stay separate.
+	role_pool = [p for p in posts if p["category"] in ("job_posting", "referral_offer")]
+	by_role = {key: [] for key in ROLE_ORDER}
+	for p in role_pool:
+		by_role[classify(p)].append(p)
+	by_cat = {c: [p for p in posts if p["category"] == c] for c, *_ in GROUPS}
+
+	fresh = [p for p in posts if days_old(p, now) <= FRESH_DAYS][:12]
+
+	role_links = [f"[{ROLE_META[key][0]} {ROLE_META[key][1]}](#{key})" for key in ROLE_ORDER if by_role[key]]
+	cat_links = [f"[{e} {t}](#{c})" for c, e, t, _ in GROUPS if by_cat[c]]
+	nav = " · ".join(["[🔥 Fresh](#fresh)"] + role_links + cat_links)
+
 	toc = "\n".join(
-		f"- [{emoji} {title}](#{cat}) · **{len(by_cat[cat])}**" for cat, emoji, title, _ in CATS if by_cat[cat]
+		[f"- [🔥 Freshest {len(fresh)}](#fresh)"]
+		+ [f"- [{ROLE_META[key][0]} {ROLE_META[key][1]}](#{key}) · **{len(by_role[key])}**" for key in ROLE_ORDER if by_role[key]]
+		+ [f"- [{e} {t}](#{c}) · **{len(by_cat[c])}**" for c, e, t, _ in GROUPS if by_cat[c]]
 	)
+
 	fresh_block = (
 		f'<a name="fresh"></a>\n## 🔥 Freshest {len(fresh)}\n\n'
-		f"_The newest posts across every category. Reply-speed matters on X — start here._\n\n{table(fresh, now)}\n\n[⬆ back to top](#top)\n\n---\n\n"
+		f"_The newest posts across every role. Reply-speed matters on X — start here._\n\n{table(fresh, now)}\n\n[⬆ back to top](#top)\n\n---\n\n"
 		if fresh
 		else ""
 	)
-	sections = "\n---\n\n".join(
-		s for cat, emoji, title, sub in CATS if (s := section(emoji, title, sub, by_cat[cat], now, cat))
+	role_sections = "\n---\n\n".join(
+		s for key in ROLE_ORDER if (s := section(key, ROLE_META[key][0], ROLE_META[key][1], ROLE_SUB[key], by_role[key], now))
 	)
+	cat_sections = "\n---\n\n".join(
+		s for c, e, t, sub in GROUPS if (s := section(c, e, t, sub, by_cat[c], now))
+	)
+	body = "\n\n---\n\n".join(b for b in [fresh_block.rstrip("\n- \n"), role_sections, cat_sections] if b)
 
 	readme = f"""<a name="top"></a>
 
@@ -148,34 +211,36 @@ def main():
 
 ![Posts](https://img.shields.io/badge/{len(posts)}%20hiring%20posts-ff5b29?style=flat-square) ![Sources](https://img.shields.io/badge/{authors}%20hiring%20accounts-6C2BD9?style=flat-square) ![Updated](https://img.shields.io/badge/updated-{today.replace('-', '.')}-00A86B?style=flat-square) [![Stars](https://img.shields.io/github/stars/landedjobs/whos-hiring-in-ai?style=social)](https://github.com/landedjobs/whos-hiring-in-ai)
 
-**Real hiring posts by real people — founders, hiring managers and recruiters posting on X.**
-Jobs surface here *before* they hit job boards, and a reply or DM beats a cold application every time.
+**Real hiring posts by real people — founders, hiring managers and recruiters posting on X**, sorted by role.
+Jobs surface here *before* they hit the job boards, and a reply or DM beats a cold application every time.
 
 *Hand-curated, refreshed every few days by [{BRAND}]({SITE}).*
 
-[🔥 Fresh](#fresh) · {' · '.join(f'[{emoji} {title}](#{cat})' for cat, emoji, title, _ in CATS if by_cat[cat])}
+{nav}
 
 </div>
 
 ---
 
-> **Why this exists** — the best AI jobs increasingly get filled from a single post on X: the founder posts, fifty people reply, someone gets hired, and the role never reaches LinkedIn. We bookmark these posts as we scout roles for [{BRAND}]({SITE}) users and publish the curation here. ⭐ **Star this repo** — it refreshes every 2–3 days.
+> **Why this exists** — the best AI jobs increasingly get filled from a single post on X: the founder posts, fifty people reply, someone gets hired, and the role never reaches LinkedIn. We bookmark these as we scout roles for [{BRAND}]({SITE}) users and publish the curation here, sorted by role. ⭐ **Star this repo** — it refreshes every 2–3 days.
 
 ## Jump to
 
 {toc}
 
+> ➕ **Know a hiring post we're missing?** [Add it in 30 seconds →]({ORG}/whos-hiring-in-ai/issues/new?template=add-hiring-post.yml) · see [CONTRIBUTING](CONTRIBUTING.md)
+
 ---
 
-{fresh_block}{sections}
+{body}
 
 ---
 
 ## How this list is built
 
-An agent reads our team's curated X bookmarks every 2–3 days, keeps only genuine hiring posts (no engagement bait, no "drop your portfolio" farming), classifies them, and rebuilds this page. Older posts move into the collapsible archive — the accounts stay worth following even after a role is filled.
+An agent reads our team's curated X bookmarks every 2–3 days, keeps only genuine hiring posts (no engagement bait, no "drop your portfolio" farming), sorts them by role, and rebuilds this page. Older posts fall into each section's collapsible archive — the accounts stay worth following even after a role is filled.
 
-**Spotted a great hiring post?** [Open an issue]({ORG}/whos-hiring-in-ai/issues) with the link and we'll fold it in.
+**Want in?** [Submit a hiring post]({ORG}/whos-hiring-in-ai/issues/new?template=add-hiring-post.yml) or open a PR editing `data/posts.json`. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## How to actually convert these into interviews
 
@@ -194,7 +259,8 @@ Replying "interested!" alongside 200 other people is still spraying. What works:
 </div>
 """
 	(HERE / "README.md").write_text(readme, encoding="utf-8")
-	print(f"README.md: {len(posts)} posts, {len(fresh)} fresh, {authors} authors")
+	dist = ", ".join(f"{ROLE_META[key][1]}:{len(by_role[key])}" for key in ROLE_ORDER if by_role[key])
+	print(f"README.md: {len(posts)} posts, {authors} authors · roles → {dist}")
 
 
 if __name__ == "__main__":
