@@ -14,6 +14,8 @@ HERE = Path(__file__).resolve().parent
 SITE = "https://landed.jobs"
 ORG = "https://github.com/landedjobs"
 BRAND = "Landed"
+CDN = "https://static.b100x.ai/github-repos/images"  # banners, buttons, avatars — served from our bucket
+SLUG = "whos-hiring-in-ai"
 FRESH_DAYS = 14
 ARCHIVE_DAYS = 45
 
@@ -97,14 +99,12 @@ def job_links(p):
 
 
 def avatar(h: str, name: str) -> str:
-	# unavatar pulls the real X avatar; ui-avatars fallback guarantees an image so no broken tiles.
-	initial = (name or h or "?").strip()[:1].upper() or "?"
-	fb = f"https://ui-avatars.com/api/?name={quote(initial)}&size=64&background=6C2BD9&color=fff&bold=true&format=png"
-	return f"https://unavatar.io/x/{h}?fallback={quote(fb, safe='')}"
+	# mirrored to our bucket by _shared/mirror_avatars.py (real X avatar, or branded letter fallback)
+	return f"{CDN}/avatars/x/{h}.png"
 
 
-def btn(url: str, asset: str, alt: str) -> str:
-	return f'<a href="{url}"><img src="assets/{asset}" width="71" alt="{alt}"></a>'
+def btn(url: str, name: str, alt: str) -> str:
+	return f'<a href="{url}"><img src="{CDN}/buttons/{name}.svg" width="71" alt="{alt}"></a>'
 
 
 def row(p, now) -> str:
@@ -120,12 +120,12 @@ def row(p, now) -> str:
 	post = f"{excerpt(p['text'])}<br>{meta}"
 	links = job_links(p)
 	if links:
-		go = btn(links[0], "btn-apply-v2.svg", "Apply") + "<br>" + btn(p["tweetUrl"], "btn-xpost-v2.svg", "View post")
+		go = btn(links[0], "apply", "Apply") + "<br>" + btn(p["tweetUrl"], "view-post", "View post")
 		if len(links) > 1:
 			go += f'<br><sub><a href="{p["tweetUrl"]}">+{len(links) - 1} more roles</a></sub>'
 	else:
 		# No external link → the play is to reply / DM on the post itself.
-		go = btn(p["tweetUrl"], "btn-openx-v2.svg", "Open on X")
+		go = btn(p["tweetUrl"], "open-x", "Open on X")
 	return f'<tr><td align="center" width="150">{who}</td><td>{post}</td><td align="center" width="95">{go}</td></tr>'
 
 
@@ -217,7 +217,7 @@ def main():
 
 <a href="{SITE}"><img src="https://static.b100x.ai/email/landed-wordmark.png" alt="Landed" width="200"></a>
 
-<img src="assets/banner.svg" alt="Who's Hiring in AI — real hiring posts from X" width="100%">
+<img src="{CDN}/{SLUG}/banner.svg" alt="Who's Hiring in AI" width="100%">
 
 ![Posts](https://img.shields.io/badge/{len(posts)}%20hiring%20posts-ff5b29?style=flat-square) ![Sources](https://img.shields.io/badge/{authors}%20hiring%20accounts-6C2BD9?style=flat-square) ![Updated](https://img.shields.io/badge/updated-{today.replace('-', '.')}-00A86B?style=flat-square) [![Stars](https://img.shields.io/github/stars/landedjobs/whos-hiring-in-ai?style=social)](https://github.com/landedjobs/whos-hiring-in-ai)
 
