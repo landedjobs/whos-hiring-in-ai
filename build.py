@@ -41,6 +41,9 @@ GROUPS = [
 
 
 def classify(p) -> str:
+	override = (p.get("bucket") or "").strip()
+	if override in ROLE_ORDER:  # human-verified bucket wins over the regex
+		return override
 	text = p.get("text", "") or ""
 	matches = [key for key, _, _, pat in ROLES if re.search(pat, text, re.I)]
 	if COMPANYWIDE.search(text) or len(matches) >= 3:
