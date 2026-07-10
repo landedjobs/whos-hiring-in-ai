@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-09",
+  "updatedAt": "2026-07-10",
   "posts": [
     {
       "tweetId": "2072346819519193277",
@@ -3829,6 +3829,336 @@
         "quotes": 0,
         "bookmarks": 84,
         "views": 17698
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075502519669997845",
+      "tweetUrl": "https://x.com/biswaasen/status/2075502519669997845",
+      "category": "job_posting",
+      "postedAt": "2026-07-10T08:48:56.000Z",
+      "text": "We're paying ₹10-25 LPA for an exceptional Product Designer.\n\nLooking for someone obsessed with building products people love, not just designing beautiful screens.\n\nStrong UI, thoughtful UX, product thinking, design systems, prototyping, and a sharp eye for detail.\n\nIf you've designed complex SaaS, AI, or B2B products, we'd love to talk.\n\nKnow someone perfect? Refer them.\n\nDM me.",
+      "author": {
+        "name": "Biswa Sen",
+        "screenName": "biswaasen",
+        "profileUrl": "https://x.com/biswaasen",
+        "bio": "Building RecMaf @JOIN_EF",
+        "location": "banglore",
+        "followers": 1328,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 4,
+        "retweets": 1,
+        "likes": 7,
+        "quotes": 0,
+        "bookmarks": 4,
+        "views": 581
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075495976379539911",
+      "tweetUrl": "https://x.com/aannuujX/status/2075495976379539911",
+      "category": "job_posting",
+      "postedAt": "2026-07-10T08:22:56.000Z",
+      "text": "Looking to hire an SDE 2 at Swiggy.\n\nIf you obsess over the details, care deeply about polished UI, and have a high bar for quality, sweat into micros and macros. \n\nIf this sounds like you, drop your work below & ask someone to vouch for you.\n\nKnow someone who’d be a great fit? Tag them!\n\nif we end up hiring, I will get you something exciting 🧡",
+      "author": {
+        "name": "dope-a-meme in SF",
+        "screenName": "aannuujX",
+        "profileUrl": "https://x.com/aannuujX",
+        "bio": "babysitting my agents ✦ engg. and product @swiggy🍔 ✦ early @wealth42hq💰 & @yougotfam 💳 ✦ Cheering RCB for 84% of my life 🚩views are personal",
+        "location": "Chand per hai apun",
+        "followers": 1349,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 14,
+        "retweets": 0,
+        "likes": 30,
+        "quotes": 0,
+        "bookmarks": 15,
+        "views": 3127
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075304974507032900",
+      "tweetUrl": "https://x.com/GuildAI/status/2075304974507032900",
+      "category": "job_posting",
+      "postedAt": "2026-07-09T19:43:57.000Z",
+      "text": "We're building a new category for AI infrastructure. \n\nAnd we need your help. \n\nCheck out a couple of our open roles below or visit our careers page to join the Guild team in the fray.\n\n⚔️ Demand Generation Lead: $140K – $220K + Bonus & Equity > https://t.co/Ch2WEVaciF\n\n⚔️ AI Engineer, Production Agents: $140K – $320K + Bonus & Equity > https://t.co/kdaQ3ZmJmU\n\nDon't see a job that fits? View all our open roles here > https://t.co/2WsRA9xewS",
+      "author": {
+        "name": "Guild.ai",
+        "screenName": "GuildAI",
+        "profileUrl": "https://x.com/GuildAI",
+        "bio": "Guild: deploy, version, and run AI agents with built-in governance. Code-first, model-agnostic, vendor-neutral platform for engineering teams.",
+        "location": "San Francisco",
+        "followers": 207,
+        "blueVerified": true
+      },
+      "links": [
+        "https://lnkd.in/gxJ5rd4d"
+      ],
+      "media": {
+        "urls": [
+          "https://pbs.twimg.com/media/HMz15F-XIAAbtoC.jpg"
+        ],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 1,
+        "retweets": 0,
+        "likes": 2,
+        "quotes": 0,
+        "bookmarks": 3,
+        "views": 3525
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075134826634486039",
+      "tweetUrl": "https://x.com/sa64r/status/2075134826634486039",
+      "category": "job_posting",
+      "postedAt": "2026-07-09T08:27:51.000Z",
+      "text": "Looking for an engineer to join Tano in London.\n\nAI-native influencer marketing. Small team, agents in production, brands paying for it.\n\nI'm the CTO. DM me and I'll tell you exactly what we're building and what you'd own. No recruiter, no form, I read every message.\n\nLink in bio",
+      "author": {
+        "name": "Sagar Shah",
+        "screenName": "sa64r",
+        "profileUrl": "https://x.com/sa64r",
+        "bio": "co founder @ tano | building an full stack AI marketing services company",
+        "location": "London, England",
+        "followers": 135,
+        "blueVerified": false
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 22,
+        "retweets": 8,
+        "likes": 148,
+        "quotes": 0,
+        "bookmarks": 93,
+        "views": 11272
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074977921924821320",
+      "tweetUrl": "https://x.com/skeptrune/status/2074977921924821320",
+      "category": "job_posting",
+      "postedAt": "2026-07-08T22:04:22.000Z",
+      "text": "we're hiring! both product and forward deployed engineers\n\nhttps://t.co/wmKL69Scd1",
+      "author": {
+        "name": "Nick Khami",
+        "screenName": "skeptrune",
+        "profileUrl": "https://x.com/skeptrune",
+        "bio": "building @mintlify, you should try to fail faster",
+        "location": "San Francisco, CA",
+        "followers": 16521,
+        "blueVerified": true
+      },
+      "links": [
+        "https://www.mintlify.com/careers"
+      ],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 18,
+        "retweets": 2,
+        "likes": 207,
+        "quotes": 0,
+        "bookmarks": 88,
+        "views": 16405
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074950678724911474",
+      "tweetUrl": "https://x.com/justinstorre/status/2074950678724911474",
+      "category": "job_posting",
+      "postedAt": "2026-07-08T20:16:07.000Z",
+      "text": "I am building a new team at Mintlify, and I am calling for strong engineers to come join me!!\n\nWe are looking for folks that want to bring new enterprise product 0-&gt;1 at Mintlify. \n\nStrong builders, and ex-founders are perfect for this role. 👌",
+      "author": {
+        "name": "Justin Torre",
+        "screenName": "justinstorre",
+        "profileUrl": "https://x.com/justinstorre",
+        "bio": "Build the context layer for AI agents @mintlify • prev founder of @helicone_ai Y23 (aqc) • builder at heart 🦀🍎",
+        "location": "San Francisco, CA",
+        "followers": 4219,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 51,
+        "retweets": 13,
+        "likes": 247,
+        "quotes": 0,
+        "bookmarks": 89,
+        "views": 49983
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074816319426363696",
+      "tweetUrl": "https://x.com/ajay_2512x/status/2074816319426363696",
+      "category": "job_posting",
+      "postedAt": "2026-07-08T11:22:13.000Z",
+      "text": "🚨 Bolna AI is HIRING\n\nIn office // Bengaluru, India (Onsite)\n\n1. Machine Learning Engineer\n2. AI Client Success (YOE: 2 yrs+)\n3. AI Solutions Engineer [YoE: 0 - 2 Years]\n4. Founder's Office, Business [YoE: 2 - 4 Years]\n5. Technical Support Engineer (YOE: 0-1)\n\nhttps://t.co/0iwGISRIzM",
+      "author": {
+        "name": "Ajay",
+        "screenName": "ajay_2512x",
+        "profileUrl": "https://x.com/ajay_2512x",
+        "bio": "Engineer // Building & Learning // Views are personal // DM for collabs ✉️",
+        "location": "India",
+        "followers": 12511,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 1,
+        "retweets": 4,
+        "likes": 138,
+        "quotes": 0,
+        "bookmarks": 126,
+        "views": 10531
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074756922658435418",
+      "tweetUrl": "https://x.com/AntWilson/status/2074756922658435418",
+      "category": "job_posting",
+      "postedAt": "2026-07-08T07:26:12.000Z",
+      "text": "52 open roles at supabase 🚀",
+      "author": {
+        "name": "Ant Wilson — e/postgres",
+        "screenName": "AntWilson",
+        "profileUrl": "https://x.com/AntWilson",
+        "bio": "Co-Founder & CTO @supabase | YC S20",
+        "location": "Remote",
+        "followers": 18378,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 30,
+        "retweets": 35,
+        "likes": 263,
+        "quotes": 0,
+        "bookmarks": 71,
+        "views": 37214
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074751742059983127",
+      "tweetUrl": "https://x.com/Gorvmishra/status/2074751742059983127",
+      "category": "job_posting",
+      "postedAt": "2026-07-08T07:05:36.000Z",
+      "text": "Hiring | Software Engineer\nRemote / On-site | Full-Time\n\nCompensation: $80k–$110k + 2%–10% Equity\nLocation: Remote (Worldwide) / Dallas / San Francisco\nExperience: 1+ Year\n\nPaddox Technologies is hiring a Software Engineer to build the infrastructure powering AI digital employees. \n\nIf you're passionate about full-stack development, LLMs, AI agents, and building production-grade software with real ownership, this is a great opportunity.\n\nWhy this role stands out\n\n• Build AI-powered digital employees used in real businesses\n• Own features end-to-end across the full stack\n• Work on LLMs, memory systems, governance, and AI automation\n• Collaborate with a small, fast-moving engineering team\n• High ownership with direct impact on the product\n\nTech Stack\n• TypeScript\n• React & Next.js\n• Node.js\n• PostgreSQL (Supabase)\n• Google Cloud Platform (Cloud Run)\n• Python\n• OpenAI & Anthropic APIs\n• Agentic AI\n• Model Context Protocol (MCP)\n\nBonus Points\n\n• Experience with LLMs, RAG, vector databases, or AI agents\n• Familiarity with Google Cloud, Supabase, MCP, or Vercel\n• Previous startup or production software experience\n\nWhy apply?\n\n• $80k–$110k salary + 2%–10% equity\n• Remote-friendly with relocation support available\n• Work on frontier AI infrastructure and agent systems\n• Build products with real-world impact from day one\n• Learn alongside a high-ownership startup engineering team\n\nInterested candidates can reply to this post and the application link will be shared directly in DM 👇🏻\n\n #Hiring",
+      "author": {
+        "name": "GouravMishra",
+        "screenName": "Gorvmishra",
+        "profileUrl": "https://x.com/Gorvmishra",
+        "bio": "dev building in public fr  | 30 day challenge | connect w builders 👇",
+        "location": "from Mars🪐",
+        "followers": 900,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [
+          "https://pbs.twimg.com/media/HMr-om6acAAMR94.jpg"
+        ],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 100,
+        "retweets": 13,
+        "likes": 203,
+        "quotes": 0,
+        "bookmarks": 192,
+        "views": 13819
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2074445024238948734",
+      "tweetUrl": "https://x.com/magmadevs/status/2074445024238948734",
+      "category": "job_posting",
+      "postedAt": "2026-07-07T10:46:49.000Z",
+      "text": "We're hiring!\n\nMagma Devs builds the RPC orchestration layer enterprises use to route, secure, and monitor every blockchain call they make.\n\n→ Senior Software Engineer - Go/Rust, distributed systems, high-availability infra\n→ Senior DevOps Engineer - Kubernetes, GitOps, CI/CD, observability\n\nThis is a hybrid role for Tel Aviv-based candidates. \n\nReal ownership, hard reliability problems, systems that don't go down.",
+      "author": {
+        "name": "Magma Devs",
+        "screenName": "magmadevs",
+        "profileUrl": "https://x.com/magmadevs",
+        "bio": "Builders of Smart Router - RPC Orchestration for Blockchain Enterprises.",
+        "location": "",
+        "followers": 129,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [
+          "https://pbs.twimg.com/media/HMnorcnXMAAxySe.jpg"
+        ],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 3,
+        "retweets": 5,
+        "likes": 39,
+        "quotes": 0,
+        "bookmarks": 8,
+        "views": 2032
       },
       "language": "en"
     }
