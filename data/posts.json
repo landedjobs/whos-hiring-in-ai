@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-10",
+  "updatedAt": "2026-07-24",
   "posts": [
     {
       "tweetId": "2072346819519193277",
@@ -4159,6 +4159,136 @@
         "quotes": 0,
         "bookmarks": 8,
         "views": 2032
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075632230760943775",
+      "tweetUrl": "https://x.com/hellosprice/status/2075632230760943775",
+      "category": "job_posting",
+      "postedAt": "2026-07-10T17:24:21.000Z",
+      "text": "We're hiring FDEs for @getavoca!\n\nForward Deployed Engineering is quickly becoming one of the most important roles in AI. To win, you need to embed with your customers, find where the product breaks in the real world, and ship the fix.  \n\nAvoca is building a world class FDE function in NYC, right now!   \n\nNot mention, they are RIPPING! 🤑\n\n$125M+ Series B & a world domination attitude! \n\nLet's go!",
+      "author": {
+        "name": "Samantha Price",
+        "screenName": "hellosprice",
+        "profileUrl": "https://x.com/hellosprice",
+        "bio": "Founding Partner @AudaciousHQ | helping founders hire & placing candidates in their dream jobs 🫶 currently in my dgaf era",
+        "location": "San Francisco, CA",
+        "followers": 1169,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [
+          "https://pbs.twimg.com/media/HM4gOsWbkAATv7I.jpg"
+        ],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 20,
+        "retweets": 13,
+        "likes": 183,
+        "quotes": 0,
+        "bookmarks": 117,
+        "views": 9509
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075596654112325890",
+      "tweetUrl": "https://x.com/hackerrank/status/2075596654112325890",
+      "category": "job_posting",
+      "postedAt": "2026-07-10T15:02:59.000Z",
+      "text": "___________________________\n| We have 30+ roles open     |\n|___________________________|\n¯\\_(•‿•)_/¯\n\nWe’re hiring across AI, engineering, product, DevRel, design, GTM, and creative:\n\n1. Forward Deployed Engineer\n2. Applied AI Engineer\n3. AI Researcher\n4. Machine Learning Engineer, Chakra\n5. Machine Learning Engineer, Evaluation\n6. Senior Machine Learning Engineer\n7. DevRel Engineer II\n8. Senior Product Manager\n9. Senior Product Designer\n10. Senior DevRel Engineer\n11. Staff Engineer\n12. Engineering Manager\n13. Lead Data Engineer\n14. Video Editor (AI Native)\n15. Senior Backend Engineer\n16. Senior Frontend Engineer\n17. Web Experience Engineer, Framer\n18. AI Data Operations Manager\n19. AI Native Story Teller\n20. Engineering Manager - Data\nCome build the future of technical hiring.",
+      "author": {
+        "name": "HackerRank",
+        "screenName": "hackerrank",
+        "profileUrl": "https://x.com/hackerrank",
+        "bio": "Change the world to value skills over pedigree.",
+        "location": "Mountain View, CA",
+        "followers": 96876,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 42,
+        "retweets": 45,
+        "likes": 791,
+        "quotes": 0,
+        "bookmarks": 662,
+        "views": 84758
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075390652284654046",
+      "tweetUrl": "https://x.com/rihntv/status/2075390652284654046",
+      "category": "job_posting",
+      "postedAt": "2026-07-10T01:24:25.000Z",
+      "text": "my startup is growing so fast we can't keep up.\n\nwe're looking to hire another cracked engineer \n\nwe work with brands like uber capital one, unilever, pg, higgsfield, and more. if u want in on an early stage rocket ship, DM me.",
+      "author": {
+        "name": "Richard Ahn",
+        "screenName": "rihntv",
+        "profileUrl": "https://x.com/rihntv",
+        "bio": "CMO @launchpoint | Sports, Colleges, Social Media",
+        "location": "Dallas, Texas",
+        "followers": 713,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 109,
+        "retweets": 3,
+        "likes": 383,
+        "quotes": 0,
+        "bookmarks": 134,
+        "views": 23130
+      },
+      "language": "en"
+    },
+    {
+      "tweetId": "2075299777580015725",
+      "tweetUrl": "https://x.com/jbaerofficial/status/2075299777580015725",
+      "category": "job_posting",
+      "postedAt": "2026-07-09T19:23:18.000Z",
+      "text": ".@Overlap_AI is the most fun place to work in tech & media. We're hiring across all functions:\n\n• GTM / Sales - work with me to bring the product to market, define the sales culture, and drive monetization for the best media companies in the world. \n\n• Product Engineering - join @caseytraina on building at the frontier of AI x video, become a forward-deployed engineer working with big media companies, massive creators, and savvy marketers.\n\n• Customer Success - usher in the future of creative work, help teams leverage agents to scale their reach. \n\n• Design - AI is still not very good at design, but our founding designer Hazem is. Join him. \n\nDM me or comment 'hiring' and we'll reach out",
+      "author": {
+        "name": "Jonathan Baer",
+        "screenName": "jbaerofficial",
+        "profileUrl": "https://x.com/jbaerofficial",
+        "bio": "CEO & Co-founder @Overlap_AI",
+        "location": "",
+        "followers": 1313,
+        "blueVerified": true
+      },
+      "links": [],
+      "media": {
+        "urls": [],
+        "types": []
+      },
+      "hashtags": [],
+      "mentions": [],
+      "stats": {
+        "replies": 4,
+        "retweets": 3,
+        "likes": 21,
+        "quotes": 0,
+        "bookmarks": 9,
+        "views": 3432
       },
       "language": "en"
     }
